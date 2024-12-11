@@ -1,0 +1,48 @@
+### Signup (User Registration)
+POST http://localhost:3000/auth/signup
+Content-Type: application/json
+
+{
+  "username": "johndoe",
+  "email": "john.doe1@example.com",
+  "password": "password123",
+  "firstName": "John",
+  "lastName": "Doe"
+}
+
+### Login (User Authentication)
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "username": "johndoe",
+  "password": "password123"
+}
+
+### Refresh Token
+POST http://localhost:3000/auth/refresh-token
+Content-Type: application/json
+
+{
+  "userId": 2,
+  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInVzZXJuYW1lIjoiam9obmRvZSIsImlhdCI6MTczMzgzOTk2NSwiZXhwIjoxNzM0NDQ0NzY1fQ.0kmb1gLnsDLYzA8EIOQZ3HsI-n8DTYMrjEAxjxzXf-g"
+}
+
+
+### Get User Info (Protected Route)
+GET http://localhost:3000/users/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInVzZXJuYW1lIjoiam9obmRvZSIsImlhdCI6MTczMzg0MDAwNSwiZXhwIjoxNzMzODQzNjA1fQ.F9VXzjSFnZv9OJhAwmg4Cl6Q1DZWxrW5FWlR5bisW2w
+
+### Update User
+PATCH http://localhost:3000/users/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInVzZXJuYW1lIjoiam9obmRvZSIsImlhdCI6MTczMzg0MDAwNSwiZXhwIjoxNzMzODQzNjA1fQ.F9VXzjSFnZv9OJhAwmg4Cl6Q1DZWxrW5FWlR5bisW2w
+Content-Type: application/json
+
+{
+  "firstName": "Johnathan",
+  "lastName": "Doe Updated"
+}
+
+### Delete User
+DELETE http://localhost:3000/users/1
+Authorization: Bearer PASTE_ACCESS_TOKEN_HERE
